@@ -1,68 +1,97 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: #f5f7fa;
-  color: #222;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #2a003d, #0b0014);
+  color: #fff;
+  min-height: 100vh;
 }
 
-/* Header */
-.header {
-  background: linear-gradient(135deg, #0d6efd, #0a58ca);
-  color: white;
-  padding: 40px 20px;
-  text-align: center;
+/* Glow background */
+.bg-glow {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  background: #d946ef;
+  filter: blur(150px);
+  top: 20%;
+  left: 60%;
+  z-index: -1;
 }
 
-/* Navbar */
-.nav {
-  background: #111;
-  padding: 12px;
-  text-align: center;
+/* Glass effect */
+.glass {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(217,70,239,0.25);
 }
 
-.nav a {
-  color: white;
-  margin: 0 15px;
+/* Topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+.topbar a {
+  color: #fff;
+  margin-left: 20px;
   text-decoration: none;
-  font-weight: 500;
 }
 
-/* Content */
-.container {
+/* Hero */
+.hero {
+  margin: 40px auto;
+  padding: 40px;
   max-width: 900px;
-  margin: 30px auto;
-  padding: 0 15px;
 }
 
-.post {
-  background: white;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+.hero h1 {
+  font-size: 48px;
 }
 
-.post h2 {
-  margin-top: 0;
+.time {
+  opacity: 0.8;
+  margin: 10px 0 20px;
 }
 
-.post a {
+.btn {
   display: inline-block;
-  margin-top: 10px;
-  color: #0d6efd;
+  padding: 10px 20px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 30px;
+  margin-right: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+/* Posts */
+.posts {
+  max-width: 900px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 25px;
+}
+
+.card a {
+  color: #e879f9;
   text-decoration: none;
   font-weight: bold;
 }
 
 /* Footer */
-.footer {
-  background: #111;
-  color: white;
+footer {
   text-align: center;
-  padding: 15px;
-  margin-top: 40px;
+  opacity: 0.6;
+  padding: 30px;
 }
