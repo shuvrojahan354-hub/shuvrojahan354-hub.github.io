@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shuvro Jahan | Tech Articles</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body{
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg,#737DFE,#FFCAC9);
+      min-height: 100vh;
+    }
+    .glass{
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .gradient-text{
+      background: linear-gradient(to right,#fff,#ffe1e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+
+<body class="text-white">
+
+<!-- HEADER -->
+<header class="max-w-6xl mx-auto flex justify-between items-center p-6">
+  <h1 class="text-2xl font-bold">
+    <span class="opacity-90">SJS</span>
+    <span class="text-sm opacity-70">• Shuvro</span>
+  </h1>
+
+  <nav class="flex items-center gap-6 text-sm font-medium">
+    <a href="#articles" class="hover:underline">Articles</a>
+    <a href="https://instagram.com/_its.shuvro" target="_blank"
+       class="text-xl hover:scale-110 transition">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="max-w-6xl mx-auto p-6">
+  <div class="glass rounded-3xl p-10 text-center">
+    
+    <p class="uppercase tracking-widest text-xs opacity-80 mb-3">
+      This website is for articles
+    </p>
+
+    <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+      Shuvro Jahan
+    </h2>
+
+    <p class="opacity-90 text-lg">
+      Founder of <b>SJS</b> — sharing tech articles, guides & ideas for everyone.
+    </p>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section id="articles" class="max-w-6xl mx-auto p-6 mt-6">
+  <h3 class="text-2xl font-bold mb-6">📘 Articles</h3>
+
+  <!-- Article Card -->
+  <div class="glass rounded-2xl p-6 mb-4">
+    <h4 class="text-xl font-semibold mb-2">
+      My First Tech Article
+    </h4>
+    <p class="text-sm opacity-90 mb-4">
+      This is my first article on my personal website.
+    </p>
+
+    <div class="flex gap-4 items-center text-sm">
+      <button class="flex items-center gap-1 hover:text-red-300 transition">
+        ❤️ <span>Like</span>
+      </button>
+      <button class="hover:underline">Share</button>
+    </div>
+  </div>
+
+  <div class="glass rounded-2xl p-6">
+    <h4 class="text-xl font-semibold mb-2">
+      How GitHub Pages Works
+    </h4>
+    <p class="text-sm opacity-90 mb-4">
+      Host your website for free using GitHub Pages.
+    </p>
+
+    <div class="flex gap-4 items-center text-sm">
+      <button class="flex items-center gap-1 hover:text-red-300 transition">
+        ❤️ <span>Like</span>
+      </button>
+      <button class="hover:underline">Share</button>
+    </div>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center text-xs opacity-80 mt-10 p-6">
+  © 2026 SJS • Shuvro Jahan • All Rights Reserved
+</footer>
+
+</body>
+</html>
