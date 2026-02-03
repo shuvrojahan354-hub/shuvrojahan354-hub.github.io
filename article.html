@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Article | SJS</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  font-family:Poppins,sans-serif;
+  background:linear-gradient(135deg,#737DFE,#FFCAC9);
+}
+.heart{
+  animation:pulse .6s;
+}
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.4)}
+  100%{transform:scale(1)}
+}
+</style>
+</head>
+
+<body class="text-white p-6">
+
+<div class="max-w-3xl mx-auto bg-white/20 backdrop-blur rounded-3xl p-8">
+<h1 class="text-3xl font-bold mb-4">My First Tech Article</h1>
+
+<p class="opacity-90 mb-6">
+This is the full article page. You can write long content here.
+</p>
+
+<button onclick="like()" class="text-xl">
+❤️ <span id="like">0</span>
+</button>
+
+<hr class="my-8 opacity-30">
+
+<div id="disqus_thread"></div>
+</div>
+
+<script>
+const id="a1";
+let l=localStorage.getItem("like-"+id)||0;
+document.getElementById("like").innerText=l;
+
+function like(){
+ l++;
+ localStorage.setItem("like-"+id,l);
+ document.getElementById("like").innerText=l;
+ document.querySelector("button").classList.add("heart");
+ setTimeout(()=>{document.querySelector("button").classList.remove("heart")},300);
+}
+</script>
+
+<script>
+var disqus_config=function(){
+this.page.url=window.location.href;
+this.page.identifier="a1";
+};
+(function(){
+var d=document,s=d.createElement('script');
+s.src='https://YOUR-SHORTNAME.disqus.com/embed.js';
+s.setAttribute('data-timestamp',+new Date());
+(d.head||d.body).appendChild(s);
+})();
+</script>
+
+</body>
+</html>
