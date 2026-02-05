@@ -1,199 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Shuvro Jahan | SJS Articles</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Shuvro Jahan | Tech Articles</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <style>
-    *{box-sizing:border-box;margin:0;padding:0;}
-    body{
-      font-family:'Poppins',sans-serif;
-      min-height:100vh;
-      color:#fff;
-      background:
-        radial-gradient(circle at center, rgba(255,255,255,.25), transparent 60%),
-        linear-gradient(135deg,#737DFE,#FFCAC9);
-    }
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:'Poppins',sans-serif;
+  min-height:100vh;
+  color:#fff;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,.2), transparent 60%),
+    linear-gradient(135deg,#737DFE,#FFCAC9);
+}
+.container{max-width:1100px;margin:auto;padding:40px 20px;}
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px;}
+header h1{font-size:26px;}
+header a{color:#fff;text-decoration:none;font-size:20px;transition:.3s;}
+header a:hover{transform:scale(1.15);}
 
-    .container{max-width:1100px;margin:auto;padding:40px 20px}
+/* Glass Panel */
+.glass{
+  background:rgba(255,255,255,.18);
+  backdrop-filter:blur(25px);
+  border-radius:30px;
+  padding:40px;
+  box-shadow:0 20px 50px rgba(0,0,0,.25);
+  margin-bottom:30px;
+}
 
-    header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:40px;
-    }
-    header h1{font-size:26px;}
-    header a{
-      color:#fff;
-      text-decoration:none;
-      font-size:20px;
-      transition:.3s;
-    }
-    header a:hover{transform:scale(1.15)}
+/* Article Card */
+.article{
+  padding:30px;
+  border-radius:26px;
+  background:rgba(255,255,255,.16);
+  margin-bottom:30px;
+  transition:.3s;
+}
+.article:hover{transform:translateY(-4px);}
 
-    .glass{
-      background:rgba(255,255,255,.18);
-      backdrop-filter:blur(25px);
-      border-radius:30px;
-      padding:40px;
-      box-shadow:0 20px 50px rgba(0,0,0,.25);
-      margin-bottom:30px;
-    }
+/* Like Button */
+.like-btn{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.25);
+  cursor:pointer;
+  transition:.3s;
+}
+.like-btn:hover{box-shadow:0 0 18px rgba(255,80,120,.8);}
+.like-btn.active{animation:pop .4s ease;}
+@keyframes pop{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.4)}
+  100%{transform:scale(1)}
+}
+.like-heart{color:#ff4d6d;font-size:16px;}
 
-    /* LIKE BUTTON MODULE */
-    .like-btn{
-      display:flex;
-      align-items:center;
-      gap:6px;
-      padding:6px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.25);
-      cursor:pointer;
-      transition:.3s;
-    }
-    .like-btn:hover{
-      box-shadow:0 0 18px rgba(255,80,120,.8);
-    }
-    .like-btn.active{
-      animation:pop .4s ease;
-      pointer-events:none;
-      opacity:.8;
-    }
-    @keyframes pop{
-      0%{transform:scale(1)}
-      50%{transform:scale(1.4)}
-      100%{transform:scale(1)}
-    }
-    .like-heart{color:#ff4d6d;font-size:16px;}
+/* Comment Button */
+.comment-btn{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.18);
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+}
+.comment-btn::after{
+  content:'';
+  position:absolute;
+  inset:-6px;
+  border-radius:999px;
+  background:radial-gradient(circle,rgba(120,120,255,.6),transparent 70%);
+  animation:chatPulse 2.5s infinite;
+}
+@keyframes chatPulse{
+  0%{opacity:0}
+  50%{opacity:.6}
+  100%{opacity:0}
+}
 
-    /* COMMENT BUTTON MODULE */
-    .comment-btn{
-      display:flex;
-      align-items:center;
-      gap:6px;
-      padding:6px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.18);
-      cursor:pointer;
-      position:relative;
-      overflow:hidden;
-    }
-    .comment-btn::after{
-      content:'';
-      position:absolute;
-      inset:-6px;
-      border-radius:999px;
-      background:radial-gradient(circle,rgba(120,120,255,.6),transparent 70%);
-      animation:chatPulse 2.5s infinite;
-    }
-    @keyframes chatPulse{
-      0%{opacity:0}
-      50%{opacity:.6}
-      100%{opacity:0}
-    }
-
-    .article{
-      padding:30px;
-      border-radius:26px;
-      background:rgba(255,255,255,.16);
-      margin-bottom:30px;
-    }
-
-    footer{
-      text-align:center;
-      font-size:13px;
-      opacity:.8;
-      margin-top:60px;
-    }
-  </style>
+/* Comment Section */
+.comment-section{
+  margin-top:20px;
+}
+.comment-section input, .comment-section button{
+  padding:10px 14px;
+  border-radius:12px;
+  border:none;
+  outline:none;
+  font-size:14px;
+}
+.comment-section input{
+  width:70%;
+  background:rgba(255,255,255,.15);
+  color:#fff;
+  transition:.3s;
+}
+.comment-section input:focus{
+  background:rgba(255,255,255,.25);
+}
+.comment-section button{
+  background:linear-gradient(135deg,#737DFE,#FFCAC9);
+  color:#fff;
+  cursor:pointer;
+  transition:.3s;
+}
+.comment-section button:hover{
+  filter:brightness(1.1);
+}
+.comment-list{
+  margin-top:15px;
+}
+.comment-list p{
+  background:rgba(255,255,255,.15);
+  padding:10px 14px;
+  border-radius:12px;
+  margin-bottom:10px;
+  transition:.3s;
+}
+footer{
+  text-align:center;
+  font-size:13px;
+  opacity:.8;
+  margin-top:60px;
+}
+</style>
 </head>
-
 <body>
 
 <div class="container">
-
-  <!-- HEADER MODULE -->
+  <!-- HEADER -->
   <header>
     <h1>SJS • Shuvro</h1>
-    <a href="https://instagram.com/_its.shuvro" target="_blank">
-      <i class="fa-brands fa-instagram"></i>
-    </a>
+    <a href="https://instagram.com/_its.shuvro" target="_blank"><i class="fa-brands fa-instagram"></i></a>
   </header>
 
-  <!-- HERO MODULE -->
+  <!-- HERO -->
   <div class="glass">
-    <p style="letter-spacing:3px;opacity:.8;font-size:12px">
-      THIS WEBSITE IS FOR ARTICLES
-    </p>
+    <p style="letter-spacing:3px;opacity:.8;font-size:12px">THIS WEBSITE IS FOR ARTICLES</p>
     <h2 style="font-size:46px;margin:10px 0">Shuvro Jahan</h2>
-    <p style="opacity:.9">
-      Sharing tech articles, ideas & guides with a clean and glowing experience.
-    </p>
+    <p style="opacity:.9">Sharing tech articles, ideas & guides with a clean and glowing experience.</p>
   </div>
 
-  <!-- ARTICLES MODULE -->
+  <!-- ARTICLES -->
   <h3 style="margin-top:50px">📘 Articles</h3>
 
-  <!-- Article 1 -->
+  <!-- ONLY Article 1 REMAINING -->
   <div class="article">
     <h4>My First Tech Article</h4>
-    <p style="opacity:.85">
-      Experience a clean, glowing and premium article layout.
-    </p>
+    <p style="opacity:.85">Experience a clean, smooth and glowing article layout.</p>
 
     <div style="display:flex;gap:12px;margin-top:15px">
-      <div class="like-btn" onclick="like(this)">
+      <div class="like-btn" onclick="toggleLike(this)">
         ❤️ <span class="count">0</span>
       </div>
-      <div class="comment-btn">
-        💬 Comment
-      </div>
+      <div class="comment-btn" onclick="focusComment(this)">💬 Comment</div>
+    </div>
+
+    <!-- Comment Section -->
+    <div class="comment-section">
+      <input type="text" placeholder="Write a comment...">
+      <button onclick="addComment(this)">Post</button>
+      <div class="comment-list"></div>
     </div>
   </div>
 
-  <!-- Article 2 -->
-  <div class="article">
-    <h4>How GitHub Pages Works</h4>
-    <p style="opacity:.85">
-      Host your website for free and share your tech knowledge.
-    </p>
-
-    <div style="display:flex;gap:12px;margin-top:15px">
-      <div class="like-btn" onclick="like(this)">
-        ❤️ <span class="count">0</span>
-      </div>
-      <div class="comment-btn">
-        💬 Comment
-      </div>
-    </div>
-  </div>
-
-  <!-- FOOTER MODULE -->
-  <footer>
-    © 2026 SJS • Shuvro Jahan
-  </footer>
-
+  <footer>© 2026 SJS • Shuvro Jahan</footer>
 </div>
 
-<!-- LIKE JS MODULE -->
 <script>
-  function like(el){
-    if(el.classList.contains('active')) return; // Only one like
-    let count = el.querySelector('.count');
-    count.innerText = parseInt(count.innerText)+1;
-    el.classList.add('active');
+  // Like toggle
+  function toggleLike(el){
+    const count = el.querySelector('.count');
+    if(el.classList.contains('active')){
+      el.classList.remove('active');
+      count.innerText = parseInt(count.innerText)-1;
+    }else{
+      el.classList.add('active');
+      count.innerText = parseInt(count.innerText)+1;
+    }
+  }
+
+  // Focus on comment input
+  function focusComment(btn){
+    const section = btn.closest('.article').querySelector('.comment-section input');
+    section.focus();
+  }
+
+  // Add comment
+  function addComment(btn){
+    const section = btn.closest('.comment-section');
+    const input = section.querySelector('input');
+    const text = input.value.trim();
+    if(text==='') return;
+    const list = section.querySelector('.comment-list');
+    const p = document.createElement('p');
+    p.textContent = text;
+    list.appendChild(p);
+    input.value='';
   }
 </script>
 
 </body>
-</html>  
-      
-  
+</html>
