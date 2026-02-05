@@ -1,14 +1,11 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shuvro Jahan | Tech Articles</title>
 
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -17,80 +14,37 @@ body{
   font-family:'Poppins',sans-serif;
   min-height:100vh;
   color:#fff;
-  background:
-    radial-gradient(circle at center, rgba(255,255,255,.2), transparent 60%),
-    linear-gradient(135deg,#737DFE,#FFCAC9);
+  background: radial-gradient(circle at center, rgba(255,255,255,.2), transparent 60%), linear-gradient(135deg,#737DFE,#FFCAC9);
 }
 .container{max-width:1100px;margin:auto;padding:40px 20px;}
 header{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px;}
 header h1{font-size:26px;}
 header a{color:#fff;text-decoration:none;font-size:20px;transition:.3s;}
 header a:hover{transform:scale(1.15);}
-
-/* Glass Panel */
-.glass{
-  background:rgba(255,255,255,.18);
-  backdrop-filter:blur(25px);
-  border-radius:30px;
-  padding:40px;
-  box-shadow:0 20px 50px rgba(0,0,0,.25);
-  margin-bottom:30px;
-}
-
-/* Article Card */
-.article{
-  padding:30px;
-  border-radius:26px;
-  background:rgba(255,255,255,.16);
-  margin-bottom:30px;
-  transition:.3s;
-}
+.glass{background:rgba(255,255,255,.18);backdrop-filter:blur(25px);border-radius:30px;padding:40px;box-shadow:0 20px 50px rgba(0,0,0,.25);margin-bottom:30px;}
+.article{padding:30px;border-radius:26px;background:rgba(255,255,255,.16);margin-bottom:30px;transition:.3s;}
 .article:hover{transform:translateY(-4px);}
-
-/* Like Button */
-.like-btn{
-  display:flex;
-  align-items:center;
-  gap:6px;
-  padding:6px 14px;
-  border-radius:999px;
-  background:rgba(255,255,255,.25);
-  cursor:pointer;
-  transition:.3s;
-}
+.like-btn{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.25);cursor:pointer;transition:.3s;}
 .like-btn:hover{box-shadow:0 0 18px rgba(255,80,120,.8);}
 .like-btn.active{animation:pop .4s ease;}
-@keyframes pop{
-  0%{transform:scale(1)}
-  50%{transform:scale(1.4)}
-  100%{transform:scale(1)}
-}
-.like-heart{color:#ff4d6d;font-size:16px;}
-footer{
-  text-align:center;
-  font-size:13px;
-  opacity:.8;
-  margin-top:60px;
-}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.4)}100%{transform:scale(1)}}
+footer{text-align:center;font-size:13px;opacity:.8;margin-top:60px;}
 </style>
 </head>
 <body>
 
 <div class="container">
-  <!-- HEADER -->
   <header>
     <h1>SJS • Shuvro</h1>
     <a href="https://instagram.com/_its.shuvro" target="_blank"><i class="fa-brands fa-instagram"></i></a>
   </header>
 
-  <!-- HERO -->
   <div class="glass">
     <p style="letter-spacing:3px;opacity:.8;font-size:12px">THIS WEBSITE IS FOR ARTICLES</p>
     <h2 style="font-size:46px;margin:10px 0">Shuvro Jahan</h2>
     <p style="opacity:.9">Sharing tech articles, ideas & guides with a clean and glowing experience.</p>
   </div>
 
-  <!-- ARTICLES -->
   <h3 style="margin-top:50px">📘 Articles</h3>
   <div id="articles"></div>
 
@@ -98,18 +52,18 @@ footer{
 </div>
 
 <script>
-const articlesContainer = document.getElementById('articles');
-
-// Example: Load articles from another GitHub folder
-// Replace the URL with your GitHub raw JSON files folder
+// GitHub Raw folder URL (আপনার repository অনুসারে পরিবর্তন করতে হবে)
 const githubFolderURL = 'https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/articles/';
 
+// JSON ফাইলের নামের array, এক ফোল্ডারে যতগুলো ফাইল থাকবে তা এখানে যোগ করো
 const articleFiles = [
   'article1.json',
   'article2.json'
 ];
 
-// Function to fetch and render articles
+const articlesContainer = document.getElementById('articles');
+
+// ফাইলগুলো লোড করে রেন্ডার করা
 articleFiles.forEach(file => {
   fetch(githubFolderURL + file)
     .then(res => res.json())
@@ -117,11 +71,10 @@ articleFiles.forEach(file => {
     .catch(err => console.error('Failed to load article:', err));
 });
 
-// Render article card
+// আর্টিকেল রেন্ডার
 function renderArticle(article){
   const div = document.createElement('div');
   div.className = 'article';
-
   div.innerHTML = `
     <h4>${article.title}</h4>
     <p style="opacity:.85">${article.content}</p>
@@ -132,7 +85,7 @@ function renderArticle(article){
   articlesContainer.appendChild(div);
 }
 
-// Like toggle
+// লাইক টগল
 function toggleLike(el){
   const count = el.querySelector('.count');
   if(el.classList.contains('active')){
