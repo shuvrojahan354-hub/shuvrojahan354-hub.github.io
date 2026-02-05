@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shuvro Jahan | Tech Articles</title>
+<title>Shuvro Jahan | Articles</title>
 
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -63,18 +63,18 @@
 // GitHub Raw folder URL
 const githubFolderURL = 'https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/articles/';
 
-// JSON ফাইলের নাম (তুমি শুধু নতুন JSON ফাইল আপলোড করলে এগুলো লিস্টে যোগ করতে হবে)
-const articleFiles = [
-  'article1.json'
-];
-
-// Function to fetch and display articles
+// Dynamic article loader
 async function loadArticles() {
   const container = document.getElementById('articles');
-  for (const file of articleFiles) {
-    try {
+
+  try {
+    // Fetch index.json (যাতে সব JSON ফাইলের নাম থাকবে)
+    const indexResponse = await fetch(githubFolderURL + 'index.json');
+    const articleFiles = await indexResponse.json(); // Ex: ["article1.json","article2.json"]
+
+    for (const file of articleFiles) {
       const response = await fetch(githubFolderURL + file);
-      if (!response.ok) throw new Error('File not found: ' + file);
+      if (!response.ok) continue;
       const data = await response.json();
 
       const articleDiv = document.createElement('div');
@@ -94,9 +94,9 @@ async function loadArticles() {
       });
 
       container.appendChild(articleDiv);
-    } catch (err) {
-      console.error(err);
     }
+  } catch (err) {
+    console.error('Error loading articles:', err);
   }
 }
 
