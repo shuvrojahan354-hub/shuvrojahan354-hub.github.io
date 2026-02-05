@@ -1,179 +1,205 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shuvro Jahan | Tech Articles</title>
+<title>Shuvro Jahan | Articles</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  min-height: 100vh;
-  color: #fff;
-
-  /* Glowing radial gradient background */
-  background: linear-gradient(180deg, #737DFE, #FFCAC9);
-  background-image:
-    radial-gradient(circle at 5% 5%, rgba(115,125,254,0.15) 0%, transparent 40%),
-    radial-gradient(circle at 95% 95%, rgba(255,202,201,0.1) 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0%, transparent 70%);
-  background-blend-mode: overlay, overlay, normal;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto;
 }
 
-/* Header */
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px 40px;
-}
-header h1{
-  font-size:24px;
-  font-weight:bold;
-}
-nav a{
-  color:white;
-  text-decoration:none;
-  margin-left:20px;
-  transition:0.3s;
-}
-nav a:hover{
-  transform:scale(1.1);
+/* ===== BACKGROUND ===== */
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at top left, #BB63FF55, transparent 40%),
+    radial-gradient(circle at bottom right, #56E1E955, transparent 40%),
+    linear-gradient(135deg, #112C70, #0A2353);
+  color:#fff;
 }
 
-/* Container */
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:40px 20px;
+/* ===== HERO ===== */
+.hero{
+  text-align:center;
+  padding:80px 20px 50px;
 }
-
-/* Glass cards */
-.glass{
-  background:rgba(255,255,255,0.18);
-  backdrop-filter: blur(20px);
-  border-radius:22px;
-  padding:30px;
-  box-shadow:0 20px 50px rgba(0,0,0,0.2);
-  margin-bottom:20px;
-  transition: all 0.3s ease;
-}
-.glass:hover{
-  box-shadow:0 0 30px rgba(255,255,255,0.4);
-}
-
-/* Hero */
-.hero h2{
-  font-size:42px;
-  margin:0 0 10px;
+.hero h1{
+  font-size:2.6rem;
+  font-weight:700;
 }
 .hero p{
+  opacity:.85;
+  margin-top:10px;
+}
+
+/* ===== SOCIAL ===== */
+.social{
+  margin-top:18px;
+}
+.social a{
+  color:#56E1E9;
+  font-size:22px;
+  transition:.3s;
+}
+.social a:hover{
+  color:#BB63FF;
+}
+
+/* ===== CONTENT ===== */
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:20px 16px 80px;
+}
+
+.section-title{
+  font-size:1.3rem;
+  margin-bottom:18px;
+}
+
+/* ===== CARD (3D GLASS) ===== */
+.card{
+  background: linear-gradient(
+    135deg,
+    rgba(91,88,235,.35),
+    rgba(187,99,255,.25)
+  );
+  backdrop-filter: blur(18px);
+  border-radius:26px;
+  padding:24px;
+  margin-bottom:22px;
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.35),
+    inset 0 0 0 1px rgba(255,255,255,.15);
+}
+
+/* ===== TEXT ===== */
+.card h2{
+  font-size:1.2rem;
+  margin-bottom:8px;
+}
+.card p{
+  font-size:.95rem;
   opacity:.9;
 }
 
-/* Articles */
-.articles h3{
-  margin-bottom:20px;
-}
-.article{
-  background:rgba(255,255,255,0.15);
-  padding:20px;
-  border-radius:18px;
-  margin-bottom:15px;
-  transition:0.3s;
-}
-.article:hover{
-  transform:translateY(-3px);
-  box-shadow:0 0 15px rgba(255,255,255,0.3);
-}
-.article h4{
-  margin:0 0 8px;
-}
-.article p{
-  font-size:14px;
-  opacity:.95;
+/* ===== ACTIONS ===== */
+.actions{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:18px;
 }
 
-/* Like button */
+/* ===== LIKE BUTTON ===== */
 .like-btn{
-  display:inline-flex;
+  display:flex;
   align-items:center;
   gap:6px;
-  padding:6px 14px;
+  padding:8px 16px;
   border-radius:999px;
-  background: rgba(255,255,255,0.25);
+  background: rgba(0,0,0,.35);
   cursor:pointer;
-  transition: all 0.3s ease;
+  transition:.3s;
 }
-.like-btn.active{
-  color:#ff4d6d;
-  font-weight:bold;
+.like-btn i{
+  color:#ff5d7d;
 }
-.like-btn:hover{
-  box-shadow:0 0 18px rgba(255,80,120,.7);
+.like-btn.liked{
+  box-shadow:0 0 18px #ff5d7d;
 }
 
-/* Footer */
+/* ===== READ LINK ===== */
+.read{
+  text-decoration:none;
+  color:#56E1E9;
+  font-weight:500;
+}
+.read:hover{
+  color:#BB63FF;
+}
+
+/* ===== FOOTER ===== */
 footer{
   text-align:center;
-  padding:20px;
-  font-size:13px;
-  opacity:.8;
+  padding:22px;
+  opacity:.7;
+  font-size:.9rem;
 }
 </style>
 </head>
 
 <body>
-<header>
-  <h1>SJS | Shuvro Jahan</h1>
-  <nav>
-    <a href="#articles">Articles</a>
-    <a href="https://instagram.com/_its.shuvro" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-  </nav>
-</header>
 
-<div class="container">
-  <!-- Hero -->
-  <div class="glass hero">
-    <h2>Shuvro Jahan</h2>
-    <p>Tech Articles • Learning • Creativity</p>
+<!-- HERO -->
+<div class="hero">
+  <h1>Shuvro Jahan</h1>
+  <p>Tech articles, guides & ideas</p>
+
+  <div class="social">
+    <a href="https://instagram.com/_its.shuvro" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
   </div>
+</div>
 
-  <!-- Articles Section -->
-  <div class="glass articles" id="articles">
-    <h3>📘 Articles</h3>
+<!-- ARTICLES -->
+<div class="container">
+  <div class="section-title">📘 Articles</div>
 
-    <div class="article">
-      <h4>Best Mobile Phones under 15k BDT</h4>
-      <p>
-        Looking for the best mobile phones under 15k BDT? Here’s a list of top smartphones balancing performance, camera, and battery life perfectly for budget-conscious users.
-      </p>
-      <button class="like-btn">❤️ Like</button>
+  <!-- ARTICLE -->
+  <div class="card">
+    <h2>Best Mobile Phones Under 15K BDT</h2>
+    <p>Top budget smartphones with best performance and camera.</p>
+
+    <div class="actions">
+      <div class="like-btn" onclick="toggleLike(this,'a1')">
+        <i class="fa-solid fa-heart"></i>
+        <span class="count">0</span>
+      </div>
+
+      <a class="read" href="articles/article-1.html">Read →</a>
     </div>
-
-    <!-- নতুন আর্টিকেল যোগ করতে এখানে paste করো -->
   </div>
 </div>
 
 <footer>
-  © 2026 Shuvro Jahan • All Rights Reserved
+  © 2026 Shuvro Jahan
 </footer>
 
 <script>
-// Like button: single like/unlike
-document.querySelectorAll('.like-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    btn.classList.toggle('active');
-    btn.innerHTML = btn.classList.contains('active') ? '❤️ Liked' : '❤️ Like';
-  });
+/* LIKE / UNLIKE (single user) */
+function toggleLike(btn,id){
+  const count = btn.querySelector('.count');
+  const liked = localStorage.getItem(id)==='1';
+
+  if(liked){
+    localStorage.setItem(id,'0');
+    btn.classList.remove('liked');
+    count.textContent='0';
+  }else{
+    localStorage.setItem(id,'1');
+    btn.classList.add('liked');
+    count.textContent='1';
+  }
+}
+
+/* LOAD STATE */
+document.querySelectorAll('.like-btn').forEach((btn,i)=>{
+  const id='a'+(i+1);
+  if(localStorage.getItem(id)==='1'){
+    btn.classList.add('liked');
+    btn.querySelector('.count').textContent='1';
+  }
 });
 </script>
+
 </body>
-</html>
+        </html>
