@@ -125,13 +125,44 @@ header a:hover{transform:scale(1.15);}
 .comment-list{
   margin-top:15px;
 }
-.comment-list p{
+.comment-item{
   background:rgba(255,255,255,.15);
   padding:10px 14px;
   border-radius:12px;
   margin-bottom:10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   transition:.3s;
 }
+.comment-item:hover{background:rgba(255,255,255,.2);}
+.comment-text{flex:1; margin-right:10px;}
+.comment-menu{
+  position:relative;
+  cursor:pointer;
+}
+.comment-menu ul{
+  display:none;
+  position:absolute;
+  top:25px;
+  right:0;
+  background:rgba(0,0,0,.3);
+  padding:5px 0;
+  border-radius:10px;
+  list-style:none;
+  min-width:80px;
+  text-align:center;
+  z-index:10;
+}
+.comment-menu ul li{
+  padding:5px 10px;
+  cursor:pointer;
+  transition:.2s;
+}
+.comment-menu ul li:hover{
+  background:rgba(255,255,255,.2);
+}
+.comment-menu.show ul{display:block;}
 footer{
   text-align:center;
   font-size:13px;
@@ -159,7 +190,7 @@ footer{
   <!-- ARTICLES -->
   <h3 style="margin-top:50px">📘 Articles</h3>
 
-  <!-- ONLY Article 1 REMAINING -->
+  <!-- ONLY Article 1 -->
   <div class="article">
     <h4>My First Tech Article</h4>
     <p style="opacity:.85">Experience a clean, smooth and glowing article layout.</p>
@@ -207,13 +238,58 @@ footer{
     const input = section.querySelector('input');
     const text = input.value.trim();
     if(text==='') return;
+
     const list = section.querySelector('.comment-list');
-    const p = document.createElement('p');
-    p.textContent = text;
-    list.appendChild(p);
+
+    // Create comment item
+    const item = document.createElement('div');
+    item.className='comment-item';
+
+    const span = document.createElement('span');
+    span.className='comment-text';
+    span.textContent=text;
+
+    const menu = document.createElement('div');
+    menu.className='comment-menu';
+    menu.innerHTML=`<i class="fa fa-ellipsis-vertical"></i>
+      <ul>
+        <li onclick="editComment(this)">Edit</li>
+        <li onclick="deleteComment(this)">Delete</li>
+      </ul>`;
+
+    item.appendChild(span);
+    item.appendChild(menu);
+    list.appendChild(item);
+
     input.value='';
+  }
+
+  // Toggle menu
+  document.addEventListener('click',function(e){
+    if(e.target.closest('.comment-menu')){
+      const menu = e.target.closest('.comment-menu');
+      menu.classList.toggle('show');
+    } else {
+      document.querySelectorAll('.comment-menu').forEach(m=>m.classList.remove('show'));
+    }
+  });
+
+  // Delete comment
+  function deleteComment(el){
+    const item = el.closest('.comment-item');
+    item.remove();
+  }
+
+  // Edit comment
+  function editComment(el){
+    const item = el.closest('.comment-item');
+    const textSpan = item.querySelector('.comment-text');
+    const newText = prompt("Edit your comment:", textSpan.textContent);
+    if(newText!==null && newText.trim()!==''){
+      textSpan.textContent=newText.trim();
+    }
   }
 </script>
 
 </body>
-</html>
+  </html>
